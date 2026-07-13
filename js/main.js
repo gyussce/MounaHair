@@ -1,6 +1,54 @@
 (function() {
   'use strict';
 
+  // ─── SVG Star Helper (replaces emoji stars) ───
+  const starSVG = '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  function renderStars(count) { return Array(count).fill(starSVG).join(''); }
+
+  // ─── Style Explorer Data ───
+  const explorerStyles = [
+    { id: 1, name: 'Knotless Braids', category: 'braids', tags: ['Protective', 'Lightweight', 'Versatile'],
+      desc: 'Gentle on the scalp with a natural, seamless finish. Available in small, medium, and large sizes, from bob to butt length. The feed-in technique distributes weight evenly, reducing tension and promoting hair health.',
+      details: 'Duration: 4-8 hours depending on size and length. Lasts 6-8 weeks with proper care. Kanekalon braiding hair included.',
+      bg: 'linear-gradient(135deg, #D4A76A 0%, #B8860B 50%, #8B6914 100%)' },
+    { id: 2, name: 'Boho Knotless Braids', category: 'braids', tags: ['Trendy', 'Textured', 'Boho'],
+      desc: 'A bohemian twist on the classic knotless — loose, curly ends for a carefree, textured look. Perfect for a laid-back yet polished aesthetic.',
+      details: 'Duration: 5-9 hours. Kanekalon braiding hair included. Human hair for curly ends available for purchase.',
+      bg: 'linear-gradient(135deg, #C8A24D 0%, #A0522D 50%, #704214 100%)' },
+    { id: 3, name: 'Box Braids', category: 'braids', tags: ['Classic', 'Durable', 'Versatile'],
+      desc: 'The timeless classic. Clean, defined partings with versatile styling options. Available in XS to jumbo sizes and various lengths.',
+      details: 'Duration: 4-10 hours depending on size. Lasts 6-8 weeks. Great for updos and half-up styles.',
+      bg: 'linear-gradient(135deg, #DEB887 0%, #CD853F 50%, #8B7355 100%)' },
+    { id: 4, name: 'Senegalese Twists', category: 'twists', tags: ['Elegant', 'Polished', 'Smooth'],
+      desc: 'Smooth, rope-like twists for an elegant, polished look. Available in regular and knotless techniques with various size options.',
+      details: 'Duration: 4-7 hours. Available in small, medium, and large. Lasts 6-8 weeks.',
+      bg: 'linear-gradient(135deg, #B8860B 0%, #6B4226 50%, #3A2E28 100%)' },
+    { id: 5, name: 'Cornrows & Feed-In', category: 'cornrows', tags: ['Sleek', 'Sculpted', 'Intricate'],
+      desc: 'Sleek, sculpted cornrow designs, including stitch braids, French braids, and intricate feed-in patterns. From simple to elaborate.',
+      details: 'Duration: 1-4 hours. Lasts 2-4 weeks. Great for active lifestyles.',
+      bg: 'linear-gradient(135deg, #DAA520 0%, #8B7355 50%, #5C4033 100%)' },
+    { id: 6, name: 'Triangle & Fulani', category: 'braids', tags: ['Geometric', 'Eye-catching', 'Cultural'],
+      desc: 'Geometric triangle partings and Fulani-inspired styles for a distinctive, eye-catching look. Available in knotless and boho variations.',
+      details: 'Duration: 5-8 hours. Lasts 6-8 weeks. Perfect for a unique statement look.',
+      bg: 'linear-gradient(135deg, #9B7653 0%, #654321 50%, #3C1414 100%)' },
+    { id: 7, name: 'Sew-Ins & Weaves', category: 'weaves', tags: ['Volume', 'Length', 'Natural'],
+      desc: 'Full sew-in weaves and partial installs for length, volume, and versatility. Professional installation for a natural, secure finish.',
+      details: 'Duration: 2-4 hours. Lasts 6-8 weeks. Bring your own hair or purchase in salon.',
+      bg: 'linear-gradient(135deg, #C4A265 0%, #8B6508 50%, #4A3728 100%)' },
+    { id: 8, name: 'Crochet Styles', category: 'weaves', tags: ['Quick', 'Lightweight', 'Versatile'],
+      desc: 'Lightweight, versatile crochet installations in a variety of textures and curl patterns. A quick, comfortable option with stunning results.',
+      details: 'Duration: 1-3 hours. Lasts 4-8 weeks. Various textures available.',
+      bg: 'linear-gradient(135deg, #DEB887 0%, #B8860B 50%, #654321 100%)' },
+    { id: 9, name: 'Bora Bora Braids', category: 'braids', tags: ['Trending', 'Unique', 'Island-Inspired'],
+      desc: 'The trending Bora Bora style — a unique, textured braiding technique for a standout, island-inspired look.',
+      details: 'Duration: 5-8 hours. The hottest trend in braiding. Kanekalon hair included.',
+      bg: 'linear-gradient(135deg, #DAA520 0%, #A0522D 50%, #483C32 100%)' },
+    { id: 10, name: 'Ponytails & Specialty', category: 'specialty', tags: ['Custom', 'Creative', 'Unique'],
+      desc: 'Braided ponytails, half-and-half styles, and custom specialty looks. Tell us your vision and we\'ll bring it to life.',
+      details: 'Duration varies. Completely customizable. Contact us to discuss your vision.',
+      bg: 'linear-gradient(135deg, #C8A24D 0%, #8B7D6B 50%, #2D1B0E 100%)' }
+  ];
+
   // ─── Gallery Data ───
   const galleryItems = [
     { title: 'Small Waist-Length Knotless Braids', category: 'knotless', bg: 'linear-gradient(135deg, #B8860B, #DAA520, #8B7355)' },
@@ -73,23 +121,15 @@
     lightboxImage.style.background = item.bg;
     lightboxTitle.textContent = item.title;
   }
-
   if (lightbox) {
     const closeBtn = document.querySelector('.lightbox-close');
     const prevNav = document.querySelector('.lightbox-prev');
     const nextNav = document.querySelector('.lightbox-next');
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevNav) prevNav.addEventListener('click', () => {
-      currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
-      updateLightbox();
-    });
-    if (nextNav) nextNav.addEventListener('click', () => {
-      currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
-      updateLightbox();
-    });
+    if (prevNav) prevNav.addEventListener('click', () => { currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length; updateLightbox(); });
+    if (nextNav) nextNav.addEventListener('click', () => { currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length; updateLightbox(); });
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   }
-
   document.addEventListener('keydown', (e) => {
     if (!lightbox || !lightbox.classList.contains('show')) return;
     if (e.key === 'Escape') closeLightbox();
@@ -97,7 +137,7 @@
     if (e.key === 'ArrowRight') { currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length; updateLightbox(); }
   });
 
-  // ─── Gallery Filters ───
+  // Gallery Filters
   document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
@@ -105,11 +145,73 @@
       renderGallery(btn.dataset.filter);
     });
   });
+  if (document.getElementById('galleryGrid')) renderGallery('all');
 
-  // Auto-render gallery if on gallery page
-  if (document.getElementById('galleryGrid')) {
-    renderGallery('all');
+  // ─── Style Explorer ───
+  const explorerGrid = document.getElementById('explorerGrid');
+  const explorerModal = document.getElementById('explorerModal');
+
+  function renderExplorer(filter) {
+    if (!explorerGrid) return;
+    const items = filter === 'all' ? explorerStyles : explorerStyles.filter(s => s.category === filter);
+    explorerGrid.innerHTML = items.map(item => `
+      <div class="explorer-item" data-id="${item.id}">
+        <div class="explorer-item-visual"><div class="explorer-item-visual-bg" style="background:${item.bg};"></div></div>
+        <div class="explorer-item-info">
+          <h3>${item.name}</h3>
+          <p>${item.desc.substring(0, 100)}...</p>
+          <div class="explorer-item-tags">${item.tags.map(t => `<span class="explorer-tag">${t}</span>`).join('')}</div>
+        </div>
+      </div>
+    `).join('');
+
+    // Add 3D tilt to explorer items
+    explorerGrid.querySelectorAll('.explorer-item').forEach(el => {
+      el.addEventListener('click', () => openExplorerModal(parseInt(el.dataset.id)));
+      addTiltEffect(el);
+    });
   }
+
+  function openExplorerModal(id) {
+    if (!explorerModal) return;
+    const style = explorerStyles.find(s => s.id === id);
+    if (!style) return;
+    const visual = explorerModal.querySelector('.explorer-modal-visual');
+    const body = explorerModal.querySelector('.explorer-modal-body');
+    visual.style.background = style.bg;
+    body.innerHTML = `
+      <h2>${style.name}</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">${style.tags.map(t => `<span class="explorer-tag">${t}</span>`).join('')}</div>
+      <p>${style.desc}</p>
+      <p style="font-size:0.9rem;color:var(--warm-gray-light);border-top:1px solid var(--border-light);padding-top:16px;margin-top:8px;">${style.details}</p>
+      <a href="https://mounahairbraidingweaves.as.me/" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="width:100%;margin-top:24px;">Book ${style.name}</a>
+    `;
+    explorerModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeExplorerModal() {
+    if (!explorerModal) return;
+    explorerModal.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  if (explorerModal) {
+    const closeBtn = explorerModal.querySelector('.explorer-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', closeExplorerModal);
+    explorerModal.addEventListener('click', (e) => { if (e.target === explorerModal) closeExplorerModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && explorerModal.classList.contains('show')) closeExplorerModal(); });
+  }
+
+  // Explorer filter buttons
+  document.querySelectorAll('.explorer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.explorer-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderExplorer(btn.dataset.filter);
+    });
+  });
+  if (explorerGrid) renderExplorer('all');
 
   // ─── Mobile Nav ───
   const mobileToggle = document.querySelector('.mobile-toggle');
@@ -134,25 +236,14 @@
     setTimeout(() => { mobileOverlay.style.display = 'none'; }, 300);
     document.body.style.overflow = '';
   }
-
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
-    });
-  }
-  if (mobileOverlay) {
-    mobileOverlay.addEventListener('click', closeMobileNav);
-  }
-  if (mobileNav) {
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
-  }
+  if (mobileToggle) mobileToggle.addEventListener('click', () => { mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav(); });
+  if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileNav);
+  if (mobileNav) mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
 
   // ─── Header Scroll ───
   const header = document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
   }
 
   // ─── Reviews Carousel ───
@@ -171,19 +262,12 @@
       else if (window.innerWidth < 1024) slidesPerView = 2;
       else slidesPerView = 3;
     }
-
-    function getTotalDots() {
-      return Math.max(1, cards.length - slidesPerView + 1);
-    }
-
+    function getTotalDots() { return Math.max(1, cards.length - slidesPerView + 1); }
     function updateCarousel() {
       const percent = (currentSlide * (100 / cards.length));
       track.style.transform = `translateX(-${percent}%)`;
-      dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
     }
-
     function buildDots() {
       updateSlidesPerView();
       dotsContainer.innerHTML = '';
@@ -198,28 +282,16 @@
       if (currentSlide >= totalDots) currentSlide = totalDots - 1;
       updateCarousel();
     }
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      currentSlide = Math.max(0, currentSlide - 1);
-      updateCarousel();
-    });
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      currentSlide = Math.min(getTotalDots() - 1, currentSlide + 1);
-      updateCarousel();
-    });
-
+    if (prevBtn) prevBtn.addEventListener('click', () => { currentSlide = Math.max(0, currentSlide - 1); updateCarousel(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { currentSlide = Math.min(getTotalDots() - 1, currentSlide + 1); updateCarousel(); });
     buildDots();
     window.addEventListener('resize', buildDots);
 
-    // Touch/swipe support
     let startX = 0;
     track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', (e) => {
       const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0 && nextBtn) nextBtn.click();
-        else if (prevBtn) prevBtn.click();
-      }
+      if (Math.abs(diff) > 50) { diff > 0 ? nextBtn && nextBtn.click() : prevBtn && prevBtn.click(); }
     }, { passive: true });
   }
 
@@ -229,14 +301,11 @@
       const item = btn.parentElement;
       const answer = item.querySelector('.faq-answer');
       const isOpen = item.classList.contains('open');
-
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-answer').style.maxHeight = '0';
         i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       });
-
       if (!isOpen) {
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -244,6 +313,68 @@
       }
     });
   });
+
+  // ─── 3D Tilt Effect ───
+  function addTiltEffect(el) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  }
+
+  // Apply tilt to hero image
+  const heroFrame = document.querySelector('.hero-image-frame');
+  if (heroFrame) addTiltEffect(heroFrame);
+
+  // Apply tilt to review cards
+  document.querySelectorAll('.review-card-inner').forEach(el => addTiltEffect(el));
+
+  // ─── Split Text Animation ───
+  function splitTextIntoChars(el) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const text = el.textContent;
+    el.innerHTML = '';
+    el.classList.add('split-text');
+    let charIndex = 0;
+    for (const char of text) {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = char === ' ' ? ' ' : char;
+      span.style.transitionDelay = `${charIndex * 30}ms`;
+      el.appendChild(span);
+      charIndex++;
+    }
+  }
+
+  // Apply split text to hero heading
+  const heroH1 = document.querySelector('.hero h1');
+  if (heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Split into words and wrap em tags
+    const html = heroH1.innerHTML;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    splitTextIntoChars(heroH1);
+  }
+
+  // ─── Parallax on scroll ───
+  function initParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const morphs = document.querySelectorAll('.hero-morph');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      morphs.forEach((m, i) => {
+        const speed = (i + 1) * 0.3;
+        m.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    }, { passive: true });
+  }
+  initParallax();
 
   // ─── Intersection Observer (scroll animations) ───
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -256,9 +387,9 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .split-text, .stagger-grid, .animated-underline, .deco-line').forEach(el => observer.observe(el));
   } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    document.querySelectorAll('.reveal, .split-text, .stagger-grid, .animated-underline').forEach(el => el.classList.add('visible'));
   }
 
   // ─── Contact Form Validation ───
@@ -267,48 +398,35 @@
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       let valid = true;
-
-      // Honeypot
       const honeypot = document.getElementById('website');
       if (honeypot && honeypot.value) return;
-
       const name = document.getElementById('contactName');
       const email = document.getElementById('contactEmail');
       const message = document.getElementById('contactMessage');
-
-      // Reset errors
       document.querySelectorAll('.form-error').forEach(err => err.style.display = 'none');
       document.querySelectorAll('.form-input, .form-textarea').forEach(inp => inp.style.borderColor = '');
-
-      if (!name.value.trim()) {
-        document.getElementById('nameError').style.display = 'block';
-        name.style.borderColor = '#C2453D';
-        valid = false;
-      }
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        document.getElementById('emailError').style.display = 'block';
-        email.style.borderColor = '#C2453D';
-        valid = false;
-      }
-      if (!message.value.trim()) {
-        document.getElementById('messageError').style.display = 'block';
-        message.style.borderColor = '#C2453D';
-        valid = false;
-      }
-
+      if (!name.value.trim()) { document.getElementById('nameError').style.display = 'block'; name.style.borderColor = '#C2453D'; valid = false; }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { document.getElementById('emailError').style.display = 'block'; email.style.borderColor = '#C2453D'; valid = false; }
+      if (!message.value.trim()) { document.getElementById('messageError').style.display = 'block'; message.style.borderColor = '#C2453D'; valid = false; }
       if (valid) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         submitBtn.textContent = 'Message Sent!';
         submitBtn.style.background = '#2D8B4E';
         submitBtn.disabled = true;
-        setTimeout(() => {
-          submitBtn.textContent = 'Send Message';
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
-          contactForm.reset();
-        }, 3000);
+        setTimeout(() => { submitBtn.textContent = 'Send Message'; submitBtn.style.background = ''; submitBtn.disabled = false; contactForm.reset(); }, 3000);
       }
     });
   }
+
+  // ─── Smooth scroll for anchor links ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 
 })();

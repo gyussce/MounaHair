@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://gyussce.github.io/MounaHair/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
