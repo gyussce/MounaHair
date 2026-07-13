@@ -483,7 +483,7 @@ p { max-width: 72ch; }
 .why-us { background: var(--ivory); }
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 48px 40px;
   margin-top: 48px;
 }
@@ -971,7 +971,7 @@ p { max-width: 72ch; }
 /* Reviews Page */
 .reviews-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 40px;
 }
