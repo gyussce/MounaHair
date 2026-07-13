@@ -10,71 +10,71 @@
     { id: 1, name: 'Knotless Braids', category: 'braids', tags: ['Protective', 'Lightweight', 'Versatile'],
       desc: 'Gentle on the scalp with a natural, seamless finish. Available in small, medium, and large sizes, from bob to butt length. The feed-in technique distributes weight evenly, reducing tension and promoting hair health.',
       details: 'Duration: 4-8 hours depending on size and length. Lasts 6-8 weeks with proper care. Kanekalon braiding hair included.',
-      bg: 'linear-gradient(135deg, #D4A76A 0%, #B8860B 50%, #8B6914 100%)' },
+      img: 'img/gallery/small-waist-knotless.jpg' },
     { id: 2, name: 'Boho Knotless Braids', category: 'braids', tags: ['Trendy', 'Textured', 'Boho'],
       desc: 'A bohemian twist on the classic knotless — loose, curly ends for a carefree, textured look. Perfect for a laid-back yet polished aesthetic.',
       details: 'Duration: 5-9 hours. Kanekalon braiding hair included. Human hair for curly ends available for purchase.',
-      bg: 'linear-gradient(135deg, #C8A24D 0%, #A0522D 50%, #704214 100%)' },
+      img: 'img/gallery/full-medium-boho-knotless.jpg' },
     { id: 3, name: 'Box Braids', category: 'braids', tags: ['Classic', 'Durable', 'Versatile'],
       desc: 'The timeless classic. Clean, defined partings with versatile styling options. Available in XS to jumbo sizes and various lengths.',
       details: 'Duration: 4-10 hours depending on size. Lasts 6-8 weeks. Great for updos and half-up styles.',
-      bg: 'linear-gradient(135deg, #DEB887 0%, #CD853F 50%, #8B7355 100%)' },
+      img: 'img/gallery/small-medium-box-braids.jpg' },
     { id: 4, name: 'Senegalese Twists', category: 'twists', tags: ['Elegant', 'Polished', 'Smooth'],
       desc: 'Smooth, rope-like twists for an elegant, polished look. Available in regular and knotless techniques with various size options.',
       details: 'Duration: 4-7 hours. Available in small, medium, and large. Lasts 6-8 weeks.',
-      bg: 'linear-gradient(135deg, #B8860B 0%, #6B4226 50%, #3A2E28 100%)' },
+      img: 'img/gallery/senegalese-twist.jpg' },
     { id: 5, name: 'Cornrows & Feed-In', category: 'cornrows', tags: ['Sleek', 'Sculpted', 'Intricate'],
       desc: 'Sleek, sculpted cornrow designs, including stitch braids, French braids, and intricate feed-in patterns. From simple to elaborate.',
       details: 'Duration: 1-4 hours. Lasts 2-4 weeks. Great for active lifestyles.',
-      bg: 'linear-gradient(135deg, #DAA520 0%, #8B7355 50%, #5C4033 100%)' },
+      img: 'img/gallery/feed-in-cornrows.jpg' },
     { id: 6, name: 'Triangle & Fulani', category: 'braids', tags: ['Geometric', 'Eye-catching', 'Cultural'],
       desc: 'Geometric triangle partings and Fulani-inspired styles for a distinctive, eye-catching look. Available in knotless and boho variations.',
       details: 'Duration: 5-8 hours. Lasts 6-8 weeks. Perfect for a unique statement look.',
-      bg: 'linear-gradient(135deg, #9B7653 0%, #654321 50%, #3C1414 100%)' },
+      img: 'img/gallery/jumbo-triangle-knotless.jpg' },
     { id: 7, name: 'Sew-Ins & Weaves', category: 'weaves', tags: ['Volume', 'Length', 'Natural'],
       desc: 'Full sew-in weaves and partial installs for length, volume, and versatility. Professional installation for a natural, secure finish.',
       details: 'Duration: 2-4 hours. Lasts 6-8 weeks. Bring your own hair or purchase in salon.',
-      bg: 'linear-gradient(135deg, #C4A265 0%, #8B6508 50%, #4A3728 100%)' },
+      img: 'img/gallery/sew-in.jpg' },
     { id: 8, name: 'Crochet Styles', category: 'weaves', tags: ['Quick', 'Lightweight', 'Versatile'],
       desc: 'Lightweight, versatile crochet installations in a variety of textures and curl patterns. A quick, comfortable option with stunning results.',
       details: 'Duration: 1-3 hours. Lasts 4-8 weeks. Various textures available.',
-      bg: 'linear-gradient(135deg, #DEB887 0%, #B8860B 50%, #654321 100%)' },
+      img: 'img/gallery/full-bob-boho-knotless.jpg' },
     { id: 9, name: 'Bora Bora Braids', category: 'braids', tags: ['Trending', 'Unique', 'Island-Inspired'],
       desc: 'The trending Bora Bora style — a unique, textured braiding technique for a standout, island-inspired look.',
       details: 'Duration: 5-8 hours. The hottest trend in braiding. Kanekalon hair included.',
-      bg: 'linear-gradient(135deg, #DAA520 0%, #A0522D 50%, #483C32 100%)' },
+      img: 'img/gallery/small-boho-knotless.jpg' },
     { id: 10, name: 'Ponytails & Specialty', category: 'specialty', tags: ['Custom', 'Creative', 'Unique'],
       desc: 'Braided ponytails, half-and-half styles, and custom specialty looks. Tell us your vision and we\'ll bring it to life.',
       details: 'Duration varies. Completely customizable. Contact us to discuss your vision.',
-      bg: 'linear-gradient(135deg, #C8A24D 0%, #8B7D6B 50%, #2D1B0E 100%)' }
+      img: 'img/gallery/small-ponytail.jpg' }
   ];
 
   // ─── Gallery Data ───
   const galleryItems = [
-    { title: 'Small Waist-Length Knotless Braids', category: 'knotless', bg: 'linear-gradient(135deg, #B8860B, #DAA520, #8B7355)' },
-    { title: 'Small Box Braids — Butt Length', category: 'box', bg: 'linear-gradient(135deg, #5C4033, #8B6914, #CD853F)' },
-    { title: 'Medium Mid-Back Boho Knotless', category: 'boho', bg: 'linear-gradient(135deg, #704214, #C8A24D, #DEB887)' },
-    { title: 'Small Ponytail', category: 'ponytail', bg: 'linear-gradient(135deg, #3A2E28, #6B4226, #A0522D)' },
-    { title: 'Large Ponytail', category: 'ponytail', bg: 'linear-gradient(135deg, #654321, #9B7653, #C4A265)' },
-    { title: 'Small Knotless Braids — Butt Length', category: 'knotless', bg: 'linear-gradient(135deg, #2F1B14, #5C3A21, #8B6508)' },
-    { title: 'Jumbo Triangle Knotless Braids', category: 'knotless', bg: 'linear-gradient(135deg, #483C32, #8B7D6B, #C4A265)' },
-    { title: 'Small Bob-Length Knotless Braids', category: 'knotless', bg: 'linear-gradient(135deg, #4A3728, #8B7355, #C8A24D)' },
-    { title: 'Small-Medium Senegalese Twists', category: 'twists', bg: 'linear-gradient(135deg, #2D1B0E, #5C3A21, #B8860B)' },
-    { title: 'Full Sew-In', category: 'sew-in', bg: 'linear-gradient(135deg, #3C1414, #6B3A2E, #A0522D)' },
-    { title: 'Two Cornrow Braids', category: 'cornrows', bg: 'linear-gradient(135deg, #D4A76A, #B8860B, #8B6914)' },
-    { title: 'Small-Medium Knotless — Waist Length', category: 'knotless', bg: 'linear-gradient(135deg, #C8A24D, #A0522D, #704214)' },
-    { title: 'Full Medium Boho Knotless', category: 'boho', bg: 'linear-gradient(135deg, #DEB887, #CD853F, #8B7355)' },
-    { title: 'Small-Medium Box Braids', category: 'box', bg: 'linear-gradient(135deg, #B8860B, #6B4226, #3A2E28)' },
-    { title: 'Stitch Braids', category: 'cornrows', bg: 'linear-gradient(135deg, #DAA520, #8B7355, #5C4033)' },
-    { title: 'Feed-In Cornrows', category: 'cornrows', bg: 'linear-gradient(135deg, #9B7653, #654321, #3C1414)' },
-    { title: 'Small Boho Knotless', category: 'boho', bg: 'linear-gradient(135deg, #C4A265, #8B6508, #4A3728)' },
-    { title: 'Full Bob Boho Knotless', category: 'boho', bg: 'linear-gradient(135deg, #DEB887, #B8860B, #654321)' },
-    { title: 'Stitch Butterfly Cornrows', category: 'cornrows', bg: 'linear-gradient(135deg, #DAA520, #A0522D, #483C32)' },
-    { title: 'XS Box Braids — Waist Length', category: 'box', bg: 'linear-gradient(135deg, #C8A24D, #8B7D6B, #2D1B0E)' },
-    { title: 'Cornrows', category: 'cornrows', bg: 'linear-gradient(135deg, #B8860B, #704214, #3A2E28)' },
-    { title: 'Boho Knotless Twists', category: 'boho', bg: 'linear-gradient(135deg, #654321, #C8A24D, #DEB887)' },
-    { title: 'Knotless Braids Waist Length', category: 'knotless', bg: 'linear-gradient(135deg, #8B6914, #DAA520, #F5DEB3)' },
-    { title: 'Regular Box Braids Mid-Back', category: 'box', bg: 'linear-gradient(135deg, #5C4033, #A0522D, #CD853F)' }
+    { title: 'Small Waist-Length Knotless Braids', category: 'knotless', img: 'img/gallery/small-waist-knotless.jpg' },
+    { title: 'Small Box Braids — Butt Length', category: 'box', img: 'img/gallery/small-box-braids-butt-length.jpg' },
+    { title: 'Medium Mid-Back Boho Knotless', category: 'boho', img: 'img/gallery/medium-middle-back-boho-knotless.jpg' },
+    { title: 'Small Ponytail', category: 'ponytail', img: 'img/gallery/small-ponytail.jpg' },
+    { title: 'Large Ponytail', category: 'ponytail', img: 'img/gallery/large-ponytail.jpg' },
+    { title: 'Small Knotless Braids — Butt Length', category: 'knotless', img: 'img/gallery/small-knotless-butt-length.jpg' },
+    { title: 'Jumbo Triangle Knotless Braids', category: 'knotless', img: 'img/gallery/jumbo-triangle-knotless.jpg' },
+    { title: 'Small Bob-Length Knotless Braids', category: 'knotless', img: 'img/gallery/small-bob-knotless.jpg' },
+    { title: 'Small-Medium Senegalese Twists', category: 'twists', img: 'img/gallery/senegalese-twist.jpg' },
+    { title: 'Full Sew-In', category: 'sew-in', img: 'img/gallery/sew-in.jpg' },
+    { title: 'Two Cornrow Braids', category: 'cornrows', img: 'img/gallery/two-braids.jpg' },
+    { title: 'Small-Medium Knotless — Waist Length', category: 'knotless', img: 'img/gallery/small-medium-knotless-waist.jpg' },
+    { title: 'Full Medium Boho Knotless', category: 'boho', img: 'img/gallery/full-medium-boho-knotless.jpg' },
+    { title: 'Small-Medium Box Braids', category: 'box', img: 'img/gallery/small-medium-box-braids.jpg' },
+    { title: 'Stitch Braids', category: 'cornrows', img: 'img/gallery/stitch-braids.jpg' },
+    { title: 'Feed-In Cornrows', category: 'cornrows', img: 'img/gallery/feed-in-cornrows.jpg' },
+    { title: 'Small Boho Knotless', category: 'boho', img: 'img/gallery/small-boho-knotless.jpg' },
+    { title: 'Full Bob Boho Knotless', category: 'boho', img: 'img/gallery/full-bob-boho-knotless.jpg' },
+    { title: 'Stitch Butterfly Cornrows', category: 'cornrows', img: 'img/gallery/stitch-butterfly-cornrows.jpg' },
+    { title: 'XS Box Braids — Waist Length', category: 'box', img: 'img/gallery/xs-box-braids-waist-1.png' },
+    { title: 'Cornrows', category: 'cornrows', img: 'img/gallery/knotless-braids-1.png' },
+    { title: 'Boho Knotless Twists', category: 'boho', img: 'img/gallery/knotless-braids-4.png' },
+    { title: 'Knotless Braids Waist Length', category: 'knotless', img: 'img/gallery/knotless-braids-2.png' },
+    { title: 'Regular Box Braids Mid-Back', category: 'box', img: 'img/gallery/xs-box-braids-waist-2.png' }
   ];
 
   // ─── Populate Gallery ───
@@ -84,7 +84,7 @@
     const items = filter === 'all' ? galleryItems : galleryItems.filter(i => i.category === filter);
     grid.innerHTML = items.map((item, i) => `
       <div class="gallery-item" data-index="${galleryItems.indexOf(item)}" style="animation-delay:${i * 40}ms;">
-        <div class="gallery-item-bg" style="background:${item.bg};"></div>
+        <img class="gallery-item-bg" src="${item.img}" alt="${item.title}" loading="lazy">
         <div class="gallery-item-overlay">
           <div class="gallery-item-title">${item.title}</div>
         </div>
@@ -118,7 +118,7 @@
   function updateLightbox() {
     if (!lightboxImage || !lightboxTitle) return;
     const item = galleryItems[currentLightboxIndex];
-    lightboxImage.style.background = item.bg;
+    lightboxImage.innerHTML = `<img src="${item.img}" alt="${item.title}" style="width:100%;height:100%;object-fit:contain;">`;
     lightboxTitle.textContent = item.title;
   }
   if (lightbox) {
@@ -156,7 +156,7 @@
     const items = filter === 'all' ? explorerStyles : explorerStyles.filter(s => s.category === filter);
     explorerGrid.innerHTML = items.map(item => `
       <div class="explorer-item" data-id="${item.id}">
-        <div class="explorer-item-visual"><div class="explorer-item-visual-bg" style="background:${item.bg};"></div></div>
+        <div class="explorer-item-visual"><img class="explorer-item-visual-bg" src="${item.img}" alt="${item.name}" loading="lazy"></div>
         <div class="explorer-item-info">
           <h3>${item.name}</h3>
           <p>${item.desc.substring(0, 100)}...</p>
@@ -178,7 +178,7 @@
     if (!style) return;
     const visual = explorerModal.querySelector('.explorer-modal-visual');
     const body = explorerModal.querySelector('.explorer-modal-body');
-    visual.style.background = style.bg;
+    visual.innerHTML = `<img src="${style.img}" alt="${style.name}" style="width:100%;height:100%;object-fit:cover;">`;
     body.innerHTML = `
       <h2>${style.name}</h2>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">${style.tags.map(t => `<span class="explorer-tag">${t}</span>`).join('')}</div>
